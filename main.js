@@ -82,19 +82,19 @@
       $(this).attr("data-value", val);
       switch (which) {
         case "background-size":
-          return image.css({
+          return mask.css({
             "background-size": "" + val + unit
           });
         case "animation-duration":
-          return image.css({
+          return mask.css({
             "animation-duration": "" + val + unit
           });
         case "animation-delay":
-          return image.css({
+          return mask.css({
             "animation-delay": "" + val + unit
           });
         case "animation-iteration-count":
-          return image.css({
+          return mask.css({
             "animation-iteration-count": "" + val
           });
       }
@@ -106,7 +106,7 @@
       $(this).attr("data-value", val);
       switch (which) {
         case "animation-name":
-          return image.css({
+          return mask.css({
             "animation-name": "" + name
           });
       }
@@ -118,7 +118,7 @@
       $(this).attr("data-value", val);
       switch (which) {
         case "animation-timing-function":
-          return image.css({
+          return mask.css({
             "animation-timing-function": "" + value
           });
       }
@@ -126,7 +126,7 @@
     return $("a[data-property='animation-iteration-count']").click(function(e) {
       e.preventDefault();
       $(this).attr("data-value", val);
-      return image.css({
+      return mask.css({
         "animation-iteration-count": "infinite"
       });
     });

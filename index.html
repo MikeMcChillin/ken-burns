@@ -41,12 +41,12 @@
 						<input id="animation-name" data-property="animation-name"  type="text" name="animation-name" min="1" />
 					</li> -->
 					<li>
-						<form>
-							<label>start</label>
-							<input id="start" data-property="0%" type="radio" name="bgpos"/>
-							<label>end</label>
-							<input id="end" data-property="100%" type="radio" name="bgpos"/>
-						</form>
+						<label>Keyframe</label>
+						<label>Start</label>
+						<input type="radio" value="0" />
+					</li>
+					<li>
+						<button onclick="$('#image').toggleClass('hidden')">Toggle Image</button>
 					</li>
 					<li>
 						<label>background-size</label>
@@ -90,6 +90,7 @@
 		<!-- <script src="js/jquery-ui-1.10.3.custom.min.js"></script> -->
 		<script src="js/plugins.js"></script>
 		<script src="js/vendor/dragabilly.js"></script>
+		<script src="js/vendor/jquery.keyframes.min.js"></script>
 		<script src="js/main.js"></script>
 
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

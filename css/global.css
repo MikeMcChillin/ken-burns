@@ -1,46 +1,48 @@
-/* line 1, global.sass */
+/* line 6, global.sass */
 body {
   font-family: "Inconsolata", "Monaco", "Source Code Pro" Courier;
   background: papayawhip; }
 
-/* line 4, global.sass */
+/* line 9, global.sass */
 fieldset {
-  display: none;
   border: 0;
-  position: fixed;
   right: 5em;
   top: 3em;
   z-index: 10;
   background: papayawhip; }
 
-/* line 12, global.sass */
+/* line 17, global.sass */
 ul {
   list-style: none;
   padding: 0; }
 
-/* line 15, global.sass */
+/* line 20, global.sass */
 li {
   margin: 2em 0; }
 
-/* line 17, global.sass */
+/* line 22, global.sass */
 a {
   color: coral;
   border-bottom: 2px solid; }
-  /* line 20, global.sass */
+  /* line 25, global.sass */
   a:hover {
     background: #ffdca2;
     cursor: pointer; }
 
-/* line 23, global.sass */
+/* line 28, global.sass */
 label {
   display: block; }
 
-/* line 25, global.sass */
+/* line 30, global.sass */
+.hidden {
+  display: none; }
+
+/* line 32, global.sass */
 #container {
   background: grey;
   position: relative; }
 
-/* line 28, global.sass */
+/* line 35, global.sass */
 #mask-clone {
   position: absolute;
   outline: 5px solid coral;
@@ -48,45 +50,41 @@ label {
   top: 0;
   left: 0; }
 
-/* line 34, global.sass */
+/* line 41, global.sass */
 #wef {
   position: fixed;
   bottom: 0;
   z-index: 2;
   left: 0; }
 
-/* line 39, global.sass */
+/* line 46, global.sass */
 #mask {
-  position: absolute; }
+  position: absolute;
+  -webkit-animation-name: ken-burns;
+  -webkit-animation-duration: 30s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-fill-mode: forwards; }
 
-/* line 69, global.sass */
+/* line 56, global.sass */
+#image {
+  opacity: 0.3; }
+
+/* line 74, global.sass */
 input {
   position: relative; }
-  /* line 71, global.sass */
+  /* line 76, global.sass */
   input:before {
     position: absolute;
     left: 0;
     top: 1em;
-    content: "[d: " attr(value) "] " attr(data-value) attr(data-unit); }
+    content: "[d: " attr(value) "] " attr(data-value) attr(data-unit);
+    display: block; }
 
-@-webkit-keyframes ken-burns {
-  /* line 79, global.sass */
-  0% {
-    background-position: 0 0; }
-
-  /* line 81, global.sass */
-  50% {
-    background-position: -750px;
-    background-position: -880px -508px; }
-
-  /* line 84, global.sass */
-  100% {
-    background-position: 0 0; } }
-
-/* line 89, global.sass */
+/* line 94, global.sass */
 #map {
   position: relative; }
 
-/* line 92, global.sass */
+/* line 97, global.sass */
 #map-canvas {
   position: absolute; }

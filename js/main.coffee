@@ -78,41 +78,15 @@ $ ->
  
 
 
-
-
-	###################################
-	# Initiate Dragabilly
-	###################################
-
-	# elem = document.querySelector("#image")
-	# draggie = new Draggabilly(elem,
-	# 	containment: true
-	# )
-
-	# onDragMove = (instance, event, pointer) ->
-	# 	console.log "dragMove on " + event.type + pointer.pageX + ", " + pointer.pageY + " position at " + instance.position.x + ", " + instance.position.y
-	# draggie = new Draggabilly(image)
-
-	# # bind event listener
-	# draggie.on "dragMove", onDragMove
-
-	# # un-bind event listener
-	# draggie.off "dragMove", onDragMove
-
-	# # return true to trigger an event listener just once
-	# draggie.on "dragMove", ->
-	# 	console.log "Draggabilly did move, just once"
-	# 	true
 	
 
-
-	
-
+	# Since we're moving an image, let's actually apply it to our mask's bg image
 	updateBackgroundPosition = (dragEvent, draggieInstance, event, pointer) ->
 		position = draggieInstance.position
 		mask.css
 			"background-position": position.x + "px " + position.y + "px"
 		message = dragEvent + "\n" + event.type + " at " + pointer.pageX + ", " + pointer.pageY + "\n" + "draggie position at " + position.x + ", " + position.y
+		# For testing purposes only
 		$("#wef").text(message)
 		
 	demo = document.querySelector("#mask")
@@ -152,16 +126,16 @@ $ ->
 
 		switch which
 			when "background-size"
-				image.css
+				mask.css
 					"background-size":  "#{val}#{unit}"
 			when "animation-duration"
-				image.css
+				mask.css
 					"animation-duration": "#{val}#{unit}"
 			when "animation-delay"
-				image.css
+				mask.css
 					"animation-delay": "#{val}#{unit}"
 			when "animation-iteration-count"
-				image.css
+				mask.css
 					"animation-iteration-count": "#{val}"
 
 
@@ -172,7 +146,7 @@ $ ->
 		$(this).attr("data-value", val)
 		switch which
 			when "animation-name"
-				image.css
+				mask.css
 					"animation-name": "#{name}"
 
 	$("select").change ->
@@ -182,14 +156,14 @@ $ ->
 		$(this).attr("data-value", val)
 		switch which
 			when "animation-timing-function"
-				image.css
+				mask.css
 					"animation-timing-function": "#{value}"
 
 	$("a[data-property='animation-iteration-count']").click (e) ->
 		e.preventDefault()
 		# Update the data-value so I can display it next to the inputs
 		$(this).attr("data-value", val)
-		image.css 
+		mask.css 
 			"animation-iteration-count": "infinite"
 
 

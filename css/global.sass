@@ -1,10 +1,15 @@
+$imagewidth: 900px
+$imageheight: 600px
+$maskwidth: 450px
+$maskheight: 300px
+
 body
 	font-family: 'Inconsolata', 'Monaco', 'Source Code Pro' Courier
 	background: papayawhip
 fieldset
-	display: none
+	// display: none
 	border: 0
-	position: fixed
+	// position: fixed
 	right: 5em
 	top: 3em
 	z-index: 10
@@ -22,6 +27,8 @@ a
 		cursor: pointer
 label
 	display: block
+.hidden
+	display: none
 #container
 	background: grey
 	position: relative
@@ -40,11 +47,14 @@ label
 	// outline: 5px solid coral
 	position: absolute
 	// overflow: hidden
-$imagewidth: 900px
-$imageheight: 600px
-$maskwidth: 450px
-$maskheight: 300px
+	-webkit-animation-name: ken-burns
+	-webkit-animation-duration: 30s
+	-webkit-animation-iteration-count: infinite
+	-webkit-animation-timing-function: ease
+	-webkit-animation-fill-mode: forwards
+
 #image
+	opacity: .3
 	// width: 100%
 	// position: relative
 	// height: auto
@@ -52,11 +62,6 @@ $maskheight: 300px
 	// overflow: hidden
 	// background: coral
 	// background-position: 0px 0px
-	// -webkit-animation-name: ken-burns
-	// -webkit-animation-duration: 30s
-	// -webkit-animation-iteration-count: infinite
-	// -webkit-animation-timing-function: ease
-	// -webkit-animation-fill-mode: forwards
 
 	// animation-name: ken-burns
 	// animation-duration: 30s
@@ -73,16 +78,16 @@ input
 		left: 0
 		top: 1em
 		content: "[d: " attr(value) "] " attr(data-value) attr(data-unit)
+		display: block
 		// content: attr(value)
 
-@-webkit-keyframes ken-burns
-	0%
-		background-position: 0 0
-	50%
-		background-position: -($imagewidth - $maskwidth) -($imageheight - $maskheight)  
-		background-position: -880px -508px
-	100%
-		background-position: 0 0
+// @-webkit-keyframes ken-burns
+// 	0%
+// 		background-position: 0 0
+// 	50%
+// 		background-position: -450px -300px
+// 	100%
+// 		background-position: 0 0
 
 
 
