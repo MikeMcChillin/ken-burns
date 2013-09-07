@@ -1,8 +1,11 @@
+/* line 1, global.sass */
 body {
   font-family: "Inconsolata", "Monaco", "Source Code Pro" Courier;
   background: papayawhip; }
 
+/* line 4, global.sass */
 fieldset {
+  display: none;
   border: 0;
   position: fixed;
   right: 5em;
@@ -10,33 +13,56 @@ fieldset {
   z-index: 10;
   background: papayawhip; }
 
+/* line 12, global.sass */
 ul {
   list-style: none;
   padding: 0; }
 
+/* line 15, global.sass */
 li {
   margin: 2em 0; }
 
+/* line 17, global.sass */
 a {
   color: coral;
   border-bottom: 2px solid; }
+  /* line 20, global.sass */
   a:hover {
     background: #ffdca2;
     cursor: pointer; }
 
+/* line 23, global.sass */
 label {
   display: block; }
 
-#image {
-  position: relative;
-  height: auto;
-  margin: 2em auto;
-  overflow: hidden;
-  background: coral;
-  background-position: 0px 0px; }
+/* line 25, global.sass */
+#container {
+  background: grey;
+  position: relative; }
 
+/* line 28, global.sass */
+#mask-clone {
+  position: absolute;
+  outline: 5px solid coral;
+  pointer-events: none;
+  top: 0;
+  left: 0; }
+
+/* line 34, global.sass */
+#wef {
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+  left: 0; }
+
+/* line 39, global.sass */
+#mask {
+  position: absolute; }
+
+/* line 69, global.sass */
 input {
   position: relative; }
+  /* line 71, global.sass */
   input:before {
     position: absolute;
     left: 0;
@@ -44,18 +70,23 @@ input {
     content: "[d: " attr(value) "] " attr(data-value) attr(data-unit); }
 
 @-webkit-keyframes ken-burns {
+  /* line 79, global.sass */
   0% {
     background-position: 0 0; }
 
+  /* line 81, global.sass */
   50% {
     background-position: -750px;
     background-position: -880px -508px; }
 
+  /* line 84, global.sass */
   100% {
     background-position: 0 0; } }
 
+/* line 89, global.sass */
 #map {
   position: relative; }
 
+/* line 92, global.sass */
 #map-canvas {
   position: absolute; }

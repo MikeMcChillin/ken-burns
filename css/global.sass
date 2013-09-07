@@ -2,6 +2,7 @@ body
 	font-family: 'Inconsolata', 'Monaco', 'Source Code Pro' Courier
 	background: papayawhip
 fieldset
+	display: none
 	border: 0
 	position: fixed
 	right: 5em
@@ -21,20 +22,36 @@ a
 		cursor: pointer
 label
 	display: block
-
-
+#container
+	background: grey
+	position: relative
+#mask-clone
+	position: absolute
+	outline: 5px solid coral
+	pointer-events: none
+	top: 0
+	left: 0
+#wef
+	position: fixed
+	bottom: 0
+	z-index: 2
+	left: 0
+#mask
+	// outline: 5px solid coral
+	position: absolute
+	// overflow: hidden
 $imagewidth: 900px
 $imageheight: 600px
 $maskwidth: 450px
 $maskheight: 300px
 #image
 	// width: 100%
-	position: relative
-	height: auto
-	margin: 2em auto
-	overflow: hidden
-	background: coral
-	background-position: 0px 0px
+	// position: relative
+	// height: auto
+	// margin: 2em auto
+	// overflow: hidden
+	// background: coral
+	// background-position: 0px 0px
 	// -webkit-animation-name: ken-burns
 	// -webkit-animation-duration: 30s
 	// -webkit-animation-iteration-count: infinite

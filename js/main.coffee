@@ -1,13 +1,54 @@
 $ ->
-	# img = new Image
-	# image = $("#image")
+	img = new Image
+	image = $("#image")
+	mask = $("#mask")
+	maskClone = $("#mask-clone")
+	container = $("#container")
 	# img.src = image.css("background-image").replace(/url\(|\)$/g, "")
-	# # Make sure image is loaded before starting any width/height calculations.
-	# $(".container").imagesLoaded ->
-	# 	imgWidth = img.width
-	# 	imgHeight = img.height
-	# 	imageWidth = (imgWidth / 2)
-	# 	imageHeight = (imgHeight / 2)
+	# Make sure image is loaded before starting any width/height calculations.
+	$(".container").imagesLoaded ->
+		# imgWidth = img.width
+		# imgHeight = img.height
+		# imageWidth = (imgWidth / 2)
+		# imageHeight = (imgHeight / 2)
+
+		imageWidth = image.width()
+		imageHeight = image.height()
+
+		maskWidth = image.width() / 2
+		console.log "maskWidth: " + maskWidth
+		maskHeight = image.height() / 2
+		console.log "maskHeight: " + maskHeight
+		setMaskDimensions = ->
+			mask.css
+				"width": maskWidth
+				"height": maskHeight
+			maskClone.css
+				"width": maskWidth
+				"height": maskHeight
+
+		setMaskDimensions()
+
+		setContainerDimensions = ->
+			container.css
+				"width": imageWidth + (maskWidth*1)
+				"height": imageHeight + (maskHeight*1)
+		setContainerDimensions()
+
+		positionMask = ->
+			mask.css
+				"left": "50%"
+				"top": "50%"
+				"margin-left": -1*maskWidth
+				"margin-top": -1*maskHeight
+			maskClone.css
+				"left": "50%"
+				"top": "50%"
+				"margin-left": -0.5*maskWidth
+				"margin-top": -0.5*maskHeight
+		
+		positionMask()
+	
 
 	# 	# Get the Image Width & Height
 	# 	$("#imgWidth").text(imgWidth)
@@ -67,10 +108,12 @@ $ ->
 	notify = (dragEvent, draggieInstance, event, pointer) ->
 		position = draggieInstance.position
 		message = dragEvent + "\n" + event.type + " at " + pointer.pageX + ", " + pointer.pageY + "\n" + "draggie position at " + position.x + ", " + position.y
-		console.log message
+		$("#wef").text(message)
 	demo = document.querySelector("#mask")
 	elem = demo.querySelector("#image")
-	draggie = new Draggabilly(elem)
+	draggie = new Draggabilly(elem, 
+		containment: "#container"
+	)
 	output = demo.querySelector("code")
 	draggie.on "dragStart", (draggieInstance, event, pointer) ->
 		notify "DRAG START", draggieInstance, event, pointer
