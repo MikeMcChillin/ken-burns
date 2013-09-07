@@ -1,0 +1,76 @@
+body
+	font-family: 'Inconsolata', 'Monaco', 'Source Code Pro' Courier
+	background: papayawhip
+fieldset
+	border: 0
+	position: fixed
+	right: 5em
+	top: 3em
+	z-index: 10
+	background: papayawhip
+ul
+	list-style: none
+	padding: 0
+li
+	margin: 2em 0
+a
+	color: coral
+	border-bottom: 2px solid
+	&:hover
+		background: darken(papayawhip, 10%)
+		cursor: pointer
+label
+	display: block
+
+
+$imagewidth: 900px
+$imageheight: 600px
+$maskwidth: 450px
+$maskheight: 300px
+#image
+	// width: 100%
+	position: relative
+	height: auto
+	margin: 2em auto
+	overflow: hidden
+	background: coral
+	background-position: 0px 0px
+	// -webkit-animation-name: ken-burns
+	// -webkit-animation-duration: 30s
+	// -webkit-animation-iteration-count: infinite
+	// -webkit-animation-timing-function: ease
+	// -webkit-animation-fill-mode: forwards
+
+	// animation-name: ken-burns
+	// animation-duration: 30s
+	// animation-iteration-count: infinite
+	// animation-timing-function: ease
+	// animation-fill-mode: forwards
+	// animation-delay: 0s
+
+
+input
+	position: relative
+	&:before
+		position: absolute
+		left: 0
+		top: 1em
+		content: "[d: " attr(value) "] " attr(data-value) attr(data-unit)
+		// content: attr(value)
+
+@-webkit-keyframes ken-burns
+	0%
+		background-position: 0 0
+	50%
+		background-position: -($imagewidth - $maskwidth) -($imageheight - $maskheight)  
+		background-position: -880px -508px
+	100%
+		background-position: 0 0
+
+
+
+#map
+	position: relative
+
+#map-canvas
+	position: absolute

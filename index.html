@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Ken Burns</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/global.css">
+		<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+	</head>
+	<body>
+		<!--[if lt IE 7]>
+			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+
+		<div class="container">
+<!-- 			<figure id="image" data-width="" data-height="" style="background-image:url('img/divan.jpg'); background-repeat: none; "></figure> -->
+
+			<figure id="mask">
+				<img id="image" src="img/divan.jpg" style="position: absolute; top: 0; left: 0" />
+			</figure>
+			<header>
+				<div>Image Width: <span id="imgWidth"></span></div>
+				<div>Image Height: <span id="imgHeight"></span></div>
+				<pre>
+					<code></code>
+				</pre>
+			</header>
+			<fieldset>
+				<ul>
+<!-- 					<li>
+						<label>animation-name</label>
+						<input id="animation-name" data-property="animation-name"  type="text" name="animation-name" min="1" />
+					</li> -->
+					<li>
+						<form>
+							<label>start</label>
+							<input id="start" data-property="0%" type="radio" name="bgpos"/>
+							<label>end</label>
+							<input id="end" data-property="100%" type="radio" name="bgpos"/>
+						</form>
+					</li>
+					<li>
+						<label>background-size</label>
+						<input id="background-size" data-property="background-size" data-unit="%" type="range" name="background-size" min="30" max="500" value="100" />
+					</li>
+					<li>
+						<label>transition-duration</label>
+						<input id="transition-duration" data-property="transition-duration" data-unit="ms" type="range" name="transition-duration" min="1" max="100000" value="100" />
+					</li>
+					<li>
+						<label>animation-duration</label>
+						<input id="animation-duration" data-property="animation-duration" data-unit="ms" type="range" name="animation-duration" min="1" max="100000" value="1000" />
+					</li>
+					<li>
+						<label>animation-delay</label>
+						<input id="animation-delay" data-property="animation-delay" data-unit="ms" type="range" name="animation-delay" min="1" max="100000" value="0" />
+					</li>
+					<li>
+						<label>animation-iteration-count</label>
+						<a data-property="animation-iteration-count" >infinite</a>
+						<input id="animation-iteration-count" data-property="animation-iteration-count" type="range" min="1" max="30" name="animation-iteration-count" value="1" />
+					</li>
+					<li>
+						<label>animation-timing-function</label>
+						<select data-property="animation-timing-function">
+							<option value="linear">linear</option>
+							<option value="ease" selected>ease</option>
+							<option value="ease-in">ease-in</option>
+							<option value="ease-out">ease-out</option>
+							<option value="ease-in-out">ease-in-out</option>
+						</select>
+					</li>
+
+				</ul>
+			</fieldset>
+		</div>
+
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+		<!-- <script src="js/jquery-ui-1.10.3.custom.min.js"></script> -->
+		<script src="js/plugins.js"></script>
+		<script src="js/vendor/dragabilly.js"></script>
+		<script src="js/main.js"></script>
+
+		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+		<script>
+			(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+			function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+			e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+			e.src='//www.google-analytics.com/analytics.js';
+			r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+			ga('create','UA-XXXXX-X');ga('send','pageview');
+		</script>
+	</body>
+</html>
