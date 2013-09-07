@@ -39,8 +39,8 @@ $ ->
 			mask.css
 				"left": "50%"
 				"top": "50%"
-				"margin-left": -1*maskWidth
-				"margin-top": -1*maskHeight
+				"margin-left": -0.5*maskWidth
+				"margin-top": -0.5*maskHeight
 			maskClone.css
 				"left": "50%"
 				"top": "50%"
@@ -49,6 +49,8 @@ $ ->
 		
 		positionMask()
 	
+
+
 
 	# 	# Get the Image Width & Height
 	# 	$("#imgWidth").text(imgWidth)
@@ -105,10 +107,14 @@ $ ->
 
 
 	
-	notify = (dragEvent, draggieInstance, event, pointer) ->
+
+	updateBackgroundPosition = (dragEvent, draggieInstance, event, pointer) ->
 		position = draggieInstance.position
+		mask.css
+			"background-position": position.x + "px " + position.y + "px"
 		message = dragEvent + "\n" + event.type + " at " + pointer.pageX + ", " + pointer.pageY + "\n" + "draggie position at " + position.x + ", " + position.y
 		$("#wef").text(message)
+		
 	demo = document.querySelector("#mask")
 	elem = demo.querySelector("#image")
 	draggie = new Draggabilly(elem, 
@@ -116,13 +122,13 @@ $ ->
 	)
 	output = demo.querySelector("code")
 	draggie.on "dragStart", (draggieInstance, event, pointer) ->
-		notify "DRAG START", draggieInstance, event, pointer
+		updateBackgroundPosition "DRAG START", draggieInstance, event, pointer
 
 	draggie.on "dragMove", (draggieInstance, event, pointer) ->
-		notify "DRAG MOVE", draggieInstance, event, pointer
+		updateBackgroundPosition "DRAG MOVE", draggieInstance, event, pointer
 
 	draggie.on "dragEnd", (draggieInstance, event, pointer) ->
-		notify "DRAG END", draggieInstance, event, pointer
+		updateBackgroundPosition "DRAG END", draggieInstance, event, pointer
 
 
 
