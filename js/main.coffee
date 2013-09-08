@@ -60,10 +60,13 @@ $ ->
 				img.src = e.target.result
 				img.id = "image"
 
-				
-
 				img.onload = ->
+					# Insert the #image in #mask
 					mask.append(img)
+
+				# We're done uploading, so hide that section
+				$(".upload").addClass "hidden"
+				
 
 
 				#########################
@@ -123,7 +126,7 @@ $ ->
 					draggie.on "dragEnd", (draggieInstance, event, pointer) ->
 						updateBackgroundPosition "DRAG END", draggieInstance, event, pointer
 
-				$(".upload").addClass "hidden"
+				
 				$(".animation-hold").addClass "visible"
 				
 	# Call drag & drop
@@ -183,3 +186,41 @@ $ ->
 	updateContainerHeight = (maskHeight) ->
 		imageHeight = image.height()
 		container.css("height", imageHeight + maskHeight)
+
+
+
+
+	####################
+	# Draw the mask
+	####################
+
+	# selection = mask.addClass("selection-box")
+	# container.on "mousedown", (e) ->
+	# 	click_y = e.pageY
+	# 	click_x = e.pageX
+	# 	selection.css
+	# 		top: click_y
+	# 		left: click_x
+	# 		width: 0
+	# 		height: 0
+
+	# 	selection.appendTo container
+	# 	container.on("mousemove", (e) ->
+	# 		move_x = e.pageX
+	# 		move_y = e.pageY
+	# 		width = Math.abs(move_x - click_x)
+	# 		height = Math.abs(move_y - click_y)
+	# 		new_x = undefined
+	# 		new_y = undefined
+	# 		new_x = (if (move_x < click_x) then (click_x - width) else click_x)
+	# 		new_y = (if (move_y < click_y) then (click_y - height) else click_y)
+	# 		selection.css
+	# 			width: width
+	# 			height: height
+	# 			top: new_y
+	# 			left: new_x
+
+	# 		console.log $selection.css()
+	# 	).on "mouseup", (e) ->
+	# 		container.off "mousemove"
+	# 		# selection.remove()

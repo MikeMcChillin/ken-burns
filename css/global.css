@@ -98,13 +98,16 @@ h4 {
   /* line 74, global.sass */
   #mask.animate {
     -webkit-animation-name: ken-burns; }
+  /* line 80, global.sass */
+  #mask.selection-box {
+    cursor: crosshair; }
 
-/* line 81, global.sass */
+/* line 83, global.sass */
 #image {
   opacity: 0.3;
   cursor: move; }
 
-/* line 99, global.sass */
+/* line 101, global.sass */
 button {
   display: inline-block;
   border: 0;
@@ -112,7 +115,7 @@ button {
   font-family: "Inconsolata", Courier, Monaco;
   -webkit-font-smoothing: antialiased; }
 
-/* line 106, global.sass */
+/* line 108, global.sass */
 select {
   -webkit-appearance: none;
   border: 0;
@@ -124,18 +127,18 @@ select {
   text-indent: 0.5em;
   cursor: pointer; }
 
-/* line 116, global.sass */
+/* line 118, global.sass */
 .vertical-align {
   display: table;
   width: 100%;
   height: 100%; }
 
-/* line 120, global.sass */
+/* line 122, global.sass */
 .upload,
 .plus {
   pointer-events: none; }
 
-/* line 123, global.sass */
+/* line 125, global.sass */
 .upload {
   color: #666666;
   text-align: center;
@@ -149,7 +152,7 @@ select {
   position: relative;
   z-index: 2; }
 
-/* line 135, global.sass */
+/* line 137, global.sass */
 .plus {
   color: transparent;
   -webkit-transition: 1s ease all;
@@ -164,7 +167,7 @@ select {
   margin-top: -40px;
   z-index: 1; }
 
-/* line 148, global.sass */
+/* line 150, global.sass */
 .animation-hold {
   background: rgba(0, 0, 0, 0.1);
   position: fixed;
@@ -174,29 +177,29 @@ select {
   padding: 1em;
   -webkit-transform: translateX(-100%);
   -webkit-transition: 0.5s ease all; }
-  /* line 157, global.sass */
+  /* line 159, global.sass */
   .animation-hold button {
     background: rgba(255, 255, 255, 0.1);
     padding: 0 0.5em;
     color: #999999;
     -webkit-transition: 0.5s ease all; }
-    /* line 162, global.sass */
+    /* line 164, global.sass */
     .animation-hold button:hover {
       color: white;
       background: rgba(255, 255, 255, 0.2); }
-  /* line 166, global.sass */
+  /* line 168, global.sass */
   .animation-hold #animate {
     border: 2px solid aquamarine;
     color: aquamarine;
     background: transparent; }
-  /* line 170, global.sass */
+  /* line 172, global.sass */
   .animation-hold.visible {
     -webkit-transform: translateX(0); }
 
-/* line 172, global.sass */
+/* line 174, global.sass */
 input {
   position: relative; }
-  /* line 174, global.sass */
+  /* line 176, global.sass */
   input:before {
     position: absolute;
     left: 0;
@@ -205,22 +208,22 @@ input {
     display: block; }
 
 @-webkit-keyframes ken-burns {
-  /* line 184, global.sass */
+  /* line 186, global.sass */
   0% {
     background-position: 0 0; }
 
-  /* line 186, global.sass */
+  /* line 188, global.sass */
   50% {
     background-position: 0 0; }
 
-  /* line 188, global.sass */
+  /* line 190, global.sass */
   100% {
     background-position: 0 0; } }
 
-/* line 192, global.sass */
+/* line 194, global.sass */
 #map {
   position: relative; }
 
-/* line 195, global.sass */
+/* line 197, global.sass */
 #map-canvas {
   position: absolute; }

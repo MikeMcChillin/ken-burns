@@ -62,6 +62,7 @@
             img.onload = function() {
               return mask.append(img);
             };
+            $(".upload").addClass("hidden");
             container.imagesLoaded(function() {
               var demo, draggie, dupeImage, elem, imageHeight, imageWidth, maskHeight, maskWidth, output, positionMask, setContainerDimensions, setMaskDimensions;
               image = $("#image");
@@ -114,7 +115,6 @@
                 return updateBackgroundPosition("DRAG END", draggieInstance, event, pointer);
               });
             });
-            $(".upload").addClass("hidden");
             return $(".animation-hold").addClass("visible");
           }
         }
