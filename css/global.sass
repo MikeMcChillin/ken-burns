@@ -11,6 +11,11 @@ body
 	-webkit-transition: 1s ease background-color
 	&.drag
 		background: #333
+		.upload
+			color: transparent
+		.plus
+			color: white
+
 fieldset
 	// display: none
 	border: 0
@@ -50,8 +55,9 @@ h4
 .hidden
 	display: none !important
 #container
-	background: #333
+	background: #111
 	position: relative
+	-webkit-transition: 1s ease all
 #background-position
 	font-size: 0.8em
 	color: #555
@@ -111,12 +117,34 @@ select
 	display: table
 	width: 100%
 	height: 100%
+.upload,
+.plus
+	pointer-events: none
 .upload
 	color: #666
 	text-align: center
-	font-size: 3em
+	font-size: 1em
+	text-transform: uppercase
+	letter-spacing: 3px
+	line-height: 1.5
 	display: table-cell
 	vertical-align: middle
+	-webkit-transition: 1s ease all
+	position: relative
+	z-index: 2
+.plus
+	color: transparent
+	-webkit-transition: 1s ease all
+	font-size: 10em
+	position: fixed
+	top: 50%
+	left: 50%
+	width: 80px
+	height: 80px
+	line-height: 80px
+	margin-left: -40px
+	margin-top: -40px
+	z-index: 1
 .animation-hold
 	background: rgba(0,0,0,0.1)
 	position: fixed

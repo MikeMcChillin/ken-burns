@@ -72,7 +72,6 @@ $(function() {
             dupeImage = function() {
               var source;
               source = $("#image").attr("src");
-              console.log(source);
               return mask.css("background", "url(" + source + ")");
             };
             dupeImage();
@@ -152,18 +151,6 @@ $(function() {
     value = $(this).val();
     prop = $(this).data("property");
     return mask.css(prop, value);
-  });
-  $("#mask-width-value").on("change", function() {
-    var maskWidth;
-    maskWidth = $(this).val();
-    mask.css("width", maskWidth);
-    return updateContainerWidth(maskWidth);
-  });
-  $("#mask-height-value").on("change", function() {
-    var maskHeight;
-    maskHeight = $(this).val();
-    mask.css("height", maskHeight);
-    return updateContainerHeight(maskHeight);
   });
   updateContainerWidth = function(maskWidth) {
     var imageWidth;

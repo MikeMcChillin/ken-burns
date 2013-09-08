@@ -78,9 +78,9 @@ $ ->
 					maskWidth = image.width() / 2
 					maskHeight = image.height() / 2
 
+					# Dupe the image as a background-image on mask
 					dupeImage = ->
 						source = $("#image").attr("src")
-						console.log source
 						mask.css("background", "url(" + source + ")")
 					dupeImage()
 
@@ -165,16 +165,16 @@ $ ->
 		# console.log value
 
 	# Update the mask width & height when changing the input text
-	$("#mask-width-value").on "change", ->
-		maskWidth = $(this).val()
-		mask.css("width", maskWidth)
-		# update the size of the container
-		updateContainerWidth(maskWidth)
-	$("#mask-height-value").on "change", ->
-		maskHeight = $(this).val()
-		mask.css("height", maskHeight)
-		# update the size of the container
-		updateContainerHeight(maskHeight)
+	# $("#mask-width-value").on "change", ->
+	# 	maskWidth = $(this).val()
+	# 	mask.css("width", maskWidth)
+	# 	# update the size of the container
+	# 	updateContainerWidth(maskWidth)
+	# $("#mask-height-value").on "change", ->
+	# 	maskHeight = $(this).val()
+	# 	mask.css("height", maskHeight)
+	# 	# update the size of the container
+	# 	updateContainerHeight(maskHeight)
 		
 	updateContainerWidth = (maskWidth) ->
 		imageWidth = image.width()
