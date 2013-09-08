@@ -18,21 +18,39 @@ ul
 	list-style: none
 	padding: 0
 li
-	margin: 2em 0
+	margin: 0 0 0.5em 0
+	&:last-child
+		margin-bottom: 0
 a
 	color: coral
 	border-bottom: 2px solid
 	&:hover
 		background: darken(papayawhip, 10%)
 		cursor: pointer
-label
-	display: block
+hr
+	margin: 1em 0
+	border: 0
+	border-bottom: 2px solid rgba(0,0,0,.3)
+input[type="text"]
+	border: 0
+	border-bottom: 2px solid
+	outline: 0
+	color: #666
+	background: transparent
+	width: 60px
+h4
+	margin-top: 0
+	color: #999
+	display: inline-block
 .hidden
 	display: none
 #container
 	background: #333
 	position: relative
-
+#background-position
+	font-size: 0.8em
+	color: #555
+	margin-left: 1em
 #wef
 	position: fixed
 	bottom: 0
@@ -44,13 +62,14 @@ label
 	// overflow: hidden
 	&.animate
 		-webkit-animation-name: ken-burns
-		-webkit-animation-duration: 30s
-		-webkit-animation-iteration-count: infinite
-		-webkit-animation-timing-function: ease
-		-webkit-animation-fill-mode: forwards
+		// -webkit-animation-duration: 30s
+		// -webkit-animation-iteration-count: infinite
+		// -webkit-animation-timing-function: ease
+		// -webkit-animation-fill-mode: forwards
 
 #image
 	opacity: .3
+	cursor: move
 	// width: 100%
 	// position: relative
 	// height: auto
@@ -66,7 +85,44 @@ label
 	// animation-fill-mode: forwards
 	// animation-delay: 0s
 
+button
+	display: inline-block
+	border: 0
+	border-radius: 2px
+	font-family: "Inconsolata", Courier, Monaco
+	-webkit-font-smoothing: antialiased
 
+select
+	-webkit-appearance: none
+	border: 0
+	background: rgba(255,255,255,.1)
+	color: #999
+	font-family: "Inconsolata", Courier, Monaco
+	font-size: 1em
+	border-radius: 2px
+	text-indent: 0.5em
+
+
+.animation-hold
+	background: rgba(0,0,0,0.1)
+	position: fixed
+	top: 0
+	left: 0
+	color: #666
+	padding: 1em
+	button
+		background: rgba(255,255,255,.1)
+		padding: 0 0.5em
+		color: #999
+		-webkit-transition: .5s ease all
+		&:hover
+			color: white
+			background: rgba(255,255,255,.2)
+		
+	#animate
+		border: 2px solid aquamarine
+		color: aquamarine
+		background: transparent
 input
 	position: relative
 	&:before
@@ -84,7 +140,6 @@ input
 		background-position: 0 0
 	100%
 		background-position: 0 0
-
 
 
 #map

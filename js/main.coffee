@@ -5,7 +5,7 @@ $ ->
 	container = $("#container")
 	# img.src = image.css("background-image").replace(/url\(|\)$/g, "")
 	# Make sure image is loaded before starting any width/height calculations.
-	$(".container").imagesLoaded ->
+	container.imagesLoaded ->
 
 		imageWidth = image.width()
 		imageHeight = image.height()
@@ -78,6 +78,7 @@ $ ->
 	$("#animate").click (e) ->
 		e.preventDefault()
 		mask.toggleClass "animate"
+		image.toggleClass "hidden"
 
 	$("#start").click (e) ->
 		e.preventDefault()
@@ -85,6 +86,7 @@ $ ->
 		anim = CSSAnimations.get("ken-burns")
 		anim.setKeyframe "0%",
 		  "background-position": startPosition
+		$("#start-value").text( "0% {background-position: " + startPosition + "}")
 
 	$("#middle").click (e) ->
 		e.preventDefault()
@@ -92,6 +94,7 @@ $ ->
 		anim = CSSAnimations.get("ken-burns")
 		anim.setKeyframe "50%",
 		  "background-position": midPosition
+		$("#middle-value").text( "50% {background-position: " + midPosition + "}")  
 		
 	$("#end").click (e) ->
 		e.preventDefault()
@@ -99,7 +102,7 @@ $ ->
 		anim = CSSAnimations.get("ken-burns")
 		anim.setKeyframe "100%",
 		  "background-position": endPosition
-		
+		$("#end-value").text( "100% {background-position: " + endPosition + "}")
 
 		
 
@@ -109,64 +112,32 @@ $ ->
 	# Inputs
 	###################################
 
-	$("#start").click (e) ->
-		e.preventDefault()
-		updateBackgroundPosition()
+	initialInputs = ->
+		$("input[type='text']").each ->
+			value = $(this).val()
+			prop = $(this).data("property")
+			# Apply to mask
+			mask.css( prop, value)
+		$("select").on "change", ->
+			value = $(this).val()
+			prop = $(this).data("property")
+			mask.css( prop, value )
+			
+	initialInputs()
 
-	# Update the the image size
-	$("input[type='range']").change ->
-		val = $(this).val()
-		val = parseInt(val)
-		which = $(this).attr("data-property")
-		unit = $(this).attr("data-unit")
-
-		# Update the data-value so I can display it next to the inputs
-		$(this).attr("data-value", val)
-
-		# Display the value beside the slider
-		#$("#{which}").val(val)
-
-		switch which
-			when "background-size"
-				mask.css
-					"background-size":  "#{val}#{unit}"
-			when "animation-duration"
-				mask.css
-					"animation-duration": "#{val}#{unit}"
-			when "animation-delay"
-				mask.css
-					"animation-delay": "#{val}#{unit}"
-			when "animation-iteration-count"
-				mask.css
-					"animation-iteration-count": "#{val}"
-
-
-	$("input[type='text']").change ->
-		which = $(this).data("property")
-		name = $(this).val()
-		# Update the data-value so I can display it next to the inputs
-		$(this).attr("data-value", val)
-		switch which
-			when "animation-name"
-				mask.css
-					"animation-name": "#{name}"
-
-	$("select").change ->
-		which = $(this).data("property")
+	# Listen to the text inputs and update the values
+	$("input[type='text']").on "change", ->
 		value = $(this).val()
-		# Update the data-value so I can display it next to the inputs
-		$(this).attr("data-value", val)
-		switch which
-			when "animation-timing-function"
-				mask.css
-					"animation-timing-function": "#{value}"
+		prop = $(this).data("property")
+		# Apply to mask
+		mask.css( prop, value)
 
-	$("a[data-property='animation-iteration-count']").click (e) ->
-		e.preventDefault()
-		# Update the data-value so I can display it next to the inputs
-		$(this).attr("data-value", val)
-		mask.css 
-			"animation-iteration-count": "infinite"
+	$("select").on "change", ->
+		value = $(this).val()
+		prop = $(this).data("property")
+		mask.css( prop, value )
+		# console.log value
+		
 
 
 

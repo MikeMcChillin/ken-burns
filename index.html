@@ -21,69 +21,56 @@
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
 
-		<div class="container">
 <!-- 			<figure id="image" data-width="" data-height="" style="background-image:url('img/divan.jpg'); background-repeat: none; "></figure> -->
 		<div id="container">
 			<figure id="mask" style="background: url('img/divan.jpg')">
 				<img id="image" src="img/divan.jpg" style="position: absolute; top: 0; left: 0" />
 			</figure>
-			<header>
 		</div>
-<!-- 				<div>Image Width: <span id="imgWidth"></span></div>
-				<div>Image Height: <span id="imgHeight"></span></div> -->
-				<div id="wef"></div>
-			</header>
-			<fieldset>
-				<ul>
-<!-- 					<li>
-						<label>animation-name</label>
-						<input id="animation-name" data-property="animation-name"  type="text" name="animation-name" min="1" />
-					</li> -->
-					<li>
-						<label>Click these buttons to set the current background-position to the value clicked</label>
-						<button id="start"> 0% </button>
-						<button id="middle"> 50% </button>
-						<button id="end"> 100% </button><br />
-						<button id="animate">ANIMATE!</button>
-						<div id="background-position">background-position: 0px 0px</div>
-					</li>
-					<li>
-						<button onclick="$('#image').toggleClass('hidden')">Toggle Image</button>
-					</li>
-					<li>
-						<label>background-size</label>
-						<input id="background-size" data-property="background-size" data-unit="%" type="range" name="background-size" min="30" max="500" value="100" />
-					</li>
-					<li>
-						<label>transition-duration</label>
-						<input id="transition-duration" data-property="transition-duration" data-unit="ms" type="range" name="transition-duration" min="1" max="100000" value="100" />
-					</li>
-					<li>
-						<label>animation-duration</label>
-						<input id="animation-duration" data-property="animation-duration" data-unit="ms" type="range" name="animation-duration" min="1" max="100000" value="1000" />
-					</li>
-					<li>
-						<label>animation-delay</label>
-						<input id="animation-delay" data-property="animation-delay" data-unit="ms" type="range" name="animation-delay" min="1" max="100000" value="0" />
-					</li>
-					<li>
-						<label>animation-iteration-count</label>
-						<a data-property="animation-iteration-count" >infinite</a>
-						<input id="animation-iteration-count" data-property="animation-iteration-count" type="range" min="1" max="30" name="animation-iteration-count" value="1" />
-					</li>
-					<li>
-						<label>animation-timing-function</label>
-						<select data-property="animation-timing-function">
-							<option value="linear">linear</option>
-							<option value="ease" selected>ease</option>
-							<option value="ease-in">ease-in</option>
-							<option value="ease-out">ease-out</option>
-							<option value="ease-in-out">ease-in-out</option>
-						</select>
-					</li>
 
-				</ul>
-			</fieldset>
+						
+		<div class="animation-hold">
+			<h4>ken-burns</h4><span id="background-position">background-position: 0px 0px</span>
+			<ul>
+				<li>
+					<span id="start-value">0% {background-position: 0px 0px}</span>
+					<button id="start">set</button>
+				</li>
+				<li>
+					<span id="middle-value">50% {background-position: 0px 0px}</span>
+					<button id="middle">set</button>
+				</li>
+				<li>
+					<span id="end-value">100% {background-position: 0px 0px}</span>
+					<button id="end">set</button>
+				</li>
+				<li><hr /></li>
+				<li>
+					<label>animation-duration</label>
+					<input id="animation-duration" data-property="animation-duration" data-unit="ms" type="text" name="animation-duration" value="10s" />
+				</li>
+				<li>
+					<label>animation-delay</label>
+					<input id="animation-delay" data-property="animation-delay" data-unit="ms" type="text" name="animation-delay" value="0s" />
+				</li>
+				<li>
+					<label>animation-iteration-count</label>
+					<!-- <a data-property="animation-iteration-count" >infinite</a> -->
+					<input id="animation-iteration-count" data-property="animation-iteration-count" type="text" name="animation-iteration-count" value="1" />
+				</li>
+				<li>
+					<label>animation-timing-function</label>
+					<select data-property="animation-timing-function">
+						<option value="linear">linear</option>
+						<option value="ease" selected>ease</option>
+						<option value="ease-in">ease-in</option>
+						<option value="ease-out">ease-out</option>
+						<option value="ease-in-out">ease-in-out</option>
+					</select>
+				</li>
+
+			</ul>
+			<button id="animate">Ken-Burnsify!</button>
 		</div>
 
 

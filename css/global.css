@@ -18,57 +18,123 @@ ul {
 
 /* line 20, global.sass */
 li {
-  margin: 2em 0; }
+  margin: 0 0 0.5em 0; }
+  /* line 22, global.sass */
+  li:last-child {
+    margin-bottom: 0; }
 
-/* line 22, global.sass */
+/* line 24, global.sass */
 a {
   color: coral;
   border-bottom: 2px solid; }
-  /* line 25, global.sass */
+  /* line 27, global.sass */
   a:hover {
     background: #ffdca2;
     cursor: pointer; }
 
-/* line 28, global.sass */
-label {
-  display: block; }
-
 /* line 30, global.sass */
+hr {
+  margin: 1em 0;
+  border: 0;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3); }
+
+/* line 34, global.sass */
+input[type="text"] {
+  border: 0;
+  border-bottom: 2px solid;
+  outline: 0;
+  color: #666666;
+  background: transparent;
+  width: 60px; }
+
+/* line 41, global.sass */
+h4 {
+  margin-top: 0;
+  color: #999999;
+  display: inline-block; }
+
+/* line 45, global.sass */
 .hidden {
   display: none; }
 
-/* line 32, global.sass */
+/* line 47, global.sass */
 #container {
   background: #333333;
   position: relative; }
 
-/* line 36, global.sass */
+/* line 50, global.sass */
+#background-position {
+  font-size: 0.8em;
+  color: #555555;
+  margin-left: 1em; }
+
+/* line 54, global.sass */
 #wef {
   position: fixed;
   bottom: 0;
   z-index: 2;
   left: 0; }
 
-/* line 41, global.sass */
+/* line 59, global.sass */
 #mask {
   position: absolute;
   outline: 1px solid papayawhip; }
-  /* line 45, global.sass */
+  /* line 63, global.sass */
   #mask.animate {
-    -webkit-animation-name: ken-burns;
-    -webkit-animation-duration: 30s;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: ease;
-    -webkit-animation-fill-mode: forwards; }
-
-/* line 52, global.sass */
-#image {
-  opacity: 0.3; }
+    -webkit-animation-name: ken-burns; }
 
 /* line 70, global.sass */
+#image {
+  opacity: 0.3;
+  cursor: move; }
+
+/* line 88, global.sass */
+button {
+  display: inline-block;
+  border: 0;
+  border-radius: 2px;
+  font-family: "Inconsolata", Courier, Monaco;
+  -webkit-font-smoothing: antialiased; }
+
+/* line 95, global.sass */
+select {
+  -webkit-appearance: none;
+  border: 0;
+  background: rgba(255, 255, 255, 0.1);
+  color: #999999;
+  font-family: "Inconsolata", Courier, Monaco;
+  font-size: 1em;
+  border-radius: 2px;
+  text-indent: 0.5em; }
+
+/* line 106, global.sass */
+.animation-hold {
+  background: rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: #666666;
+  padding: 1em; }
+  /* line 113, global.sass */
+  .animation-hold button {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0 0.5em;
+    color: #999999;
+    -webkit-transition: 0.5s ease all; }
+    /* line 118, global.sass */
+    .animation-hold button:hover {
+      color: white;
+      background: rgba(255, 255, 255, 0.2); }
+  /* line 122, global.sass */
+  .animation-hold #animate {
+    border: 2px solid aquamarine;
+    color: aquamarine;
+    background: transparent; }
+
+/* line 126, global.sass */
 input {
   position: relative; }
-  /* line 72, global.sass */
+  /* line 128, global.sass */
   input:before {
     position: absolute;
     left: 0;
@@ -77,22 +143,22 @@ input {
     display: block; }
 
 @-webkit-keyframes ken-burns {
-  /* line 81, global.sass */
+  /* line 137, global.sass */
   0% {
     background-position: 0 0; }
 
-  /* line 83, global.sass */
+  /* line 139, global.sass */
   50% {
     background-position: 0 0; }
 
-  /* line 85, global.sass */
+  /* line 141, global.sass */
   100% {
     background-position: 0 0; } }
 
-/* line 90, global.sass */
+/* line 145, global.sass */
 #map {
   position: relative; }
 
-/* line 93, global.sass */
+/* line 148, global.sass */
 #map-canvas {
   position: absolute; }
