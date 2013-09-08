@@ -27,7 +27,6 @@
 			<figure id="mask" style="background: url('img/divan.jpg')">
 				<img id="image" src="img/divan.jpg" style="position: absolute; top: 0; left: 0" />
 			</figure>
-			<div id="mask-clone"></div>
 			<header>
 		</div>
 <!-- 				<div>Image Width: <span id="imgWidth"></span></div>
@@ -41,9 +40,12 @@
 						<input id="animation-name" data-property="animation-name"  type="text" name="animation-name" min="1" />
 					</li> -->
 					<li>
-						<label>Keyframe</label>
-						<label>Start</label>
-						<input type="radio" value="0" />
+						<label>Click these buttons to set the current background-position to the value clicked</label>
+						<button id="start"> 0% </button>
+						<button id="middle"> 50% </button>
+						<button id="end"> 100% </button><br />
+						<button id="animate">ANIMATE!</button>
+						<div id="background-position">background-position: 0px 0px</div>
 					</li>
 					<li>
 						<button onclick="$('#image').toggleClass('hidden')">Toggle Image</button>
@@ -90,7 +92,7 @@
 		<!-- <script src="js/jquery-ui-1.10.3.custom.min.js"></script> -->
 		<script src="js/plugins.js"></script>
 		<script src="js/vendor/dragabilly.js"></script>
-		<script src="js/vendor/jquery.keyframes.min.js"></script>
+		<script src="js/vendor/css-animations.js"></script>
 		<script src="js/main.js"></script>
 
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

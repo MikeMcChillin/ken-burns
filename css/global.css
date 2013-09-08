@@ -39,41 +39,36 @@ label {
 
 /* line 32, global.sass */
 #container {
-  background: grey;
+  background: #333333;
   position: relative; }
 
-/* line 35, global.sass */
-#mask-clone {
-  position: absolute;
-  outline: 5px solid coral;
-  pointer-events: none;
-  top: 0;
-  left: 0; }
-
-/* line 41, global.sass */
+/* line 36, global.sass */
 #wef {
   position: fixed;
   bottom: 0;
   z-index: 2;
   left: 0; }
 
-/* line 46, global.sass */
+/* line 41, global.sass */
 #mask {
   position: absolute;
-  -webkit-animation-name: ken-burns;
-  -webkit-animation-duration: 30s;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: ease;
-  -webkit-animation-fill-mode: forwards; }
+  outline: 1px solid papayawhip; }
+  /* line 45, global.sass */
+  #mask.animate {
+    -webkit-animation-name: ken-burns;
+    -webkit-animation-duration: 30s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-fill-mode: forwards; }
 
-/* line 56, global.sass */
+/* line 52, global.sass */
 #image {
   opacity: 0.3; }
 
-/* line 74, global.sass */
+/* line 70, global.sass */
 input {
   position: relative; }
-  /* line 76, global.sass */
+  /* line 72, global.sass */
   input:before {
     position: absolute;
     left: 0;
@@ -81,10 +76,23 @@ input {
     content: "[d: " attr(value) "] " attr(data-value) attr(data-unit);
     display: block; }
 
-/* line 94, global.sass */
+@-webkit-keyframes ken-burns {
+  /* line 81, global.sass */
+  0% {
+    background-position: 0 0; }
+
+  /* line 83, global.sass */
+  50% {
+    background-position: 0 0; }
+
+  /* line 85, global.sass */
+  100% {
+    background-position: 0 0; } }
+
+/* line 90, global.sass */
 #map {
   position: relative; }
 
-/* line 97, global.sass */
+/* line 93, global.sass */
 #map-canvas {
   position: absolute; }

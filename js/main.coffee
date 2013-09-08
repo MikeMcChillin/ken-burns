@@ -2,15 +2,10 @@ $ ->
 	img = new Image
 	image = $("#image")
 	mask = $("#mask")
-	maskClone = $("#mask-clone")
 	container = $("#container")
 	# img.src = image.css("background-image").replace(/url\(|\)$/g, "")
 	# Make sure image is loaded before starting any width/height calculations.
 	$(".container").imagesLoaded ->
-		# imgWidth = img.width
-		# imgHeight = img.height
-		# imageWidth = (imgWidth / 2)
-		# imageHeight = (imgHeight / 2)
 
 		imageWidth = image.width()
 		imageHeight = image.height()
@@ -21,9 +16,6 @@ $ ->
 		console.log "maskHeight: " + maskHeight
 		setMaskDimensions = ->
 			mask.css
-				"width": maskWidth
-				"height": maskHeight
-			maskClone.css
 				"width": maskWidth
 				"height": maskHeight
 
@@ -41,53 +33,25 @@ $ ->
 				"top": "50%"
 				"margin-left": -0.5*maskWidth
 				"margin-top": -0.5*maskHeight
-			maskClone.css
-				"left": "50%"
-				"top": "50%"
-				"margin-left": -0.5*maskWidth
-				"margin-top": -0.5*maskHeight
 		
 		positionMask()
 	
 
-
-
-	# 	# Get the Image Width & Height
-	# 	$("#imgWidth").text(imgWidth)
-	# 	$("#imgHeight").text(imgHeight)
-
-	# 	# Set the initial image Width & Height
-	# 	image.css
-	# 		width: imgWidth + "px"
-	# 		height: imgHeight + "px"
-
-	# 	# Set the data attributes of the image so I can grab the content via css
-	# 	image.data("width", imgWidth)
-	# 	image.data("height", imgHeight)
-
-
-	
-	# updateBG = ->
-	# 	bgLeft = image.css('left')
-	# 	bgTop = image.css('top')
-	# 	console.log "bgLeft: " + bgLeft
-	# 	console.log "bgTop: " + bgTop
-
-	# 	image.css
-	# 		"background-position": bgLeft + "px " + bgTop + "px"
- 
-
-
-	
 
 	# Since we're moving an image, let's actually apply it to our mask's bg image
 	updateBackgroundPosition = (dragEvent, draggieInstance, event, pointer) ->
 		position = draggieInstance.position
 		mask.css
 			"background-position": position.x + "px " + position.y + "px"
-		message = dragEvent + "\n" + event.type + " at " + pointer.pageX + ", " + pointer.pageY + "\n" + "draggie position at " + position.x + ", " + position.y
+		currentBackgroundPosition()
+
 		# For testing purposes only
-		$("#wef").text(message)
+		#message = dragEvent + "\n" + event.type + " at " + pointer.pageX + ", " + pointer.pageY + "\n" + "draggie position at " + position.x + ", " + position.y
+		#$("#wef").text(message)
+
+
+
+		
 		
 	demo = document.querySelector("#mask")
 	elem = demo.querySelector("#image")
@@ -106,10 +70,48 @@ $ ->
 
 
 
+	currentBackgroundPosition = ->
+		$("#background-position").text("background-position: " + mask.css("background-position"))
+
+
+
+	$("#animate").click (e) ->
+		e.preventDefault()
+		mask.toggleClass "animate"
+
+	$("#start").click (e) ->
+		e.preventDefault()
+		startPosition = $("#mask").css("background-position")
+		anim = CSSAnimations.get("ken-burns")
+		anim.setKeyframe "0%",
+		  "background-position": startPosition
+
+	$("#middle").click (e) ->
+		e.preventDefault()
+		midPosition = $("#mask").css("background-position")
+		anim = CSSAnimations.get("ken-burns")
+		anim.setKeyframe "50%",
+		  "background-position": midPosition
+		
+	$("#end").click (e) ->
+		e.preventDefault()
+		endPosition = $("#mask").css("background-position")
+		anim = CSSAnimations.get("ken-burns")
+		anim.setKeyframe "100%",
+		  "background-position": endPosition
+		
+
+		
+
+
 
 	###################################
 	# Inputs
 	###################################
+
+	$("#start").click (e) ->
+		e.preventDefault()
+		updateBackgroundPosition()
 
 	# Update the the image size
 	$("input[type='range']").change ->

@@ -30,28 +30,24 @@ label
 .hidden
 	display: none
 #container
-	background: grey
+	background: #333
 	position: relative
-#mask-clone
-	position: absolute
-	outline: 5px solid coral
-	pointer-events: none
-	top: 0
-	left: 0
+
 #wef
 	position: fixed
 	bottom: 0
 	z-index: 2
 	left: 0
 #mask
-	// outline: 5px solid coral
 	position: absolute
+	outline: 1px solid papayawhip
 	// overflow: hidden
-	-webkit-animation-name: ken-burns
-	-webkit-animation-duration: 30s
-	-webkit-animation-iteration-count: infinite
-	-webkit-animation-timing-function: ease
-	-webkit-animation-fill-mode: forwards
+	&.animate
+		-webkit-animation-name: ken-burns
+		-webkit-animation-duration: 30s
+		-webkit-animation-iteration-count: infinite
+		-webkit-animation-timing-function: ease
+		-webkit-animation-fill-mode: forwards
 
 #image
 	opacity: .3
@@ -81,13 +77,13 @@ input
 		display: block
 		// content: attr(value)
 
-// @-webkit-keyframes ken-burns
-// 	0%
-// 		background-position: 0 0
-// 	50%
-// 		background-position: -450px -300px
-// 	100%
-// 		background-position: 0 0
+@-webkit-keyframes ken-burns
+	0%
+		background-position: 0 0
+	50%
+		background-position: 0 0
+	100%
+		background-position: 0 0
 
 
 
