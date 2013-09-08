@@ -1,9 +1,18 @@
-/* line 6, global.sass */
+/* line 5, global.sass */
+html,
+body {
+  height: 100%; }
+
+/* line 8, global.sass */
 body {
   font-family: "Inconsolata", "Monaco", "Source Code Pro" Courier;
-  background: papayawhip; }
+  background: #111111;
+  -webkit-transition: 1s ease background-color; }
+  /* line 12, global.sass */
+  body.droppable {
+    background: #333333; }
 
-/* line 9, global.sass */
+/* line 14, global.sass */
 fieldset {
   border: 0;
   right: 5em;
@@ -11,34 +20,34 @@ fieldset {
   z-index: 10;
   background: papayawhip; }
 
-/* line 17, global.sass */
+/* line 22, global.sass */
 ul {
   list-style: none;
   padding: 0; }
 
-/* line 20, global.sass */
+/* line 25, global.sass */
 li {
   margin: 0 0 0.5em 0; }
-  /* line 22, global.sass */
+  /* line 27, global.sass */
   li:last-child {
     margin-bottom: 0; }
 
-/* line 24, global.sass */
+/* line 29, global.sass */
 a {
   color: coral;
   border-bottom: 2px solid; }
-  /* line 27, global.sass */
+  /* line 32, global.sass */
   a:hover {
     background: #ffdca2;
     cursor: pointer; }
 
-/* line 30, global.sass */
+/* line 35, global.sass */
 hr {
   margin: 1em 0;
   border: 0;
   border-bottom: 2px solid rgba(0, 0, 0, 0.3); }
 
-/* line 34, global.sass */
+/* line 39, global.sass */
 input[type="text"] {
   border: 0;
   border-bottom: 2px solid;
@@ -47,48 +56,48 @@ input[type="text"] {
   background: transparent;
   width: 60px; }
 
-/* line 41, global.sass */
+/* line 46, global.sass */
 h4 {
   margin-top: 0;
   color: #999999;
   display: inline-block; }
 
-/* line 45, global.sass */
+/* line 50, global.sass */
 .hidden {
   display: none; }
 
-/* line 47, global.sass */
+/* line 52, global.sass */
 #container {
   background: #333333;
   position: relative; }
 
-/* line 50, global.sass */
+/* line 55, global.sass */
 #background-position {
   font-size: 0.8em;
   color: #555555;
   margin-left: 1em; }
 
-/* line 54, global.sass */
+/* line 59, global.sass */
 #wef {
   position: fixed;
   bottom: 0;
   z-index: 2;
   left: 0; }
 
-/* line 59, global.sass */
+/* line 64, global.sass */
 #mask {
   position: absolute;
   outline: 1px solid papayawhip; }
-  /* line 63, global.sass */
+  /* line 68, global.sass */
   #mask.animate {
     -webkit-animation-name: ken-burns; }
 
-/* line 70, global.sass */
+/* line 75, global.sass */
 #image {
   opacity: 0.3;
   cursor: move; }
 
-/* line 88, global.sass */
+/* line 93, global.sass */
 button {
   display: inline-block;
   border: 0;
@@ -96,7 +105,7 @@ button {
   font-family: "Inconsolata", Courier, Monaco;
   -webkit-font-smoothing: antialiased; }
 
-/* line 95, global.sass */
+/* line 100, global.sass */
 select {
   -webkit-appearance: none;
   border: 0;
@@ -105,36 +114,56 @@ select {
   font-family: "Inconsolata", Courier, Monaco;
   font-size: 1em;
   border-radius: 2px;
-  text-indent: 0.5em; }
+  text-indent: 0.5em;
+  cursor: pointer; }
 
-/* line 106, global.sass */
+/* line 110, global.sass */
+.vertical-align {
+  display: table;
+  width: 100%;
+  height: 100%; }
+
+/* line 114, global.sass */
+.upload {
+  color: #666666;
+  text-align: center;
+  font-size: 3em;
+  display: table-cell;
+  vertical-align: middle; }
+
+/* line 120, global.sass */
 .animation-hold {
   background: rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
   left: 0;
   color: #666666;
-  padding: 1em; }
-  /* line 113, global.sass */
+  padding: 1em;
+  -webkit-transform: translateX(-100%);
+  -webkit-transition: 0.5s ease all; }
+  /* line 129, global.sass */
   .animation-hold button {
     background: rgba(255, 255, 255, 0.1);
     padding: 0 0.5em;
     color: #999999;
     -webkit-transition: 0.5s ease all; }
-    /* line 118, global.sass */
+    /* line 134, global.sass */
     .animation-hold button:hover {
       color: white;
       background: rgba(255, 255, 255, 0.2); }
-  /* line 122, global.sass */
+  /* line 138, global.sass */
   .animation-hold #animate {
     border: 2px solid aquamarine;
     color: aquamarine;
     background: transparent; }
+  /* line 142, global.sass */
+  .animation-hold.active {
+    -webkit-transform: translateX(0); }
 
-/* line 126, global.sass */
+/* line 144, global.sass */
 input {
   position: relative; }
-  /* line 128, global.sass */
+  /* line 146, global.sass */
   input:before {
     position: absolute;
     left: 0;
@@ -143,22 +172,22 @@ input {
     display: block; }
 
 @-webkit-keyframes ken-burns {
-  /* line 137, global.sass */
+  /* line 156, global.sass */
   0% {
     background-position: 0 0; }
 
-  /* line 139, global.sass */
+  /* line 158, global.sass */
   50% {
     background-position: 0 0; }
 
-  /* line 141, global.sass */
+  /* line 160, global.sass */
   100% {
     background-position: 0 0; } }
 
-/* line 145, global.sass */
+/* line 164, global.sass */
 #map {
   position: relative; }
 
-/* line 148, global.sass */
+/* line 167, global.sass */
 #map-canvas {
   position: absolute; }

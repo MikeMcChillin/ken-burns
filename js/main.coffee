@@ -11,20 +11,18 @@ $ ->
 		imageHeight = image.height()
 
 		maskWidth = image.width() / 2
-		console.log "maskWidth: " + maskWidth
 		maskHeight = image.height() / 2
-		console.log "maskHeight: " + maskHeight
+
 		setMaskDimensions = ->
 			mask.css
 				"width": maskWidth
 				"height": maskHeight
-
 		setMaskDimensions()
 
 		setContainerDimensions = ->
 			container.css
-				"width": imageWidth + (maskWidth*1)
-				"height": imageHeight + (maskHeight*1)
+				"width": imageWidth + maskWidth
+				"height": imageHeight + maskHeight
 		setContainerDimensions()
 
 		positionMask = ->
@@ -113,7 +111,7 @@ $ ->
 	###################################
 
 	initialInputs = ->
-		$("input[type='text']").each ->
+		$(".change").each ->
 			value = $(this).val()
 			prop = $(this).data("property")
 			# Apply to mask
@@ -122,11 +120,14 @@ $ ->
 			value = $(this).val()
 			prop = $(this).data("property")
 			mask.css( prop, value )
+		container.imagesLoaded ->
+			$("#mask-width-value").val(mask.width())
+			$("#mask-height-value").val(mask.height())
 			
 	initialInputs()
 
 	# Listen to the text inputs and update the values
-	$("input[type='text']").on "change", ->
+	$(".change").on "change", ->
 		value = $(this).val()
 		prop = $(this).data("property")
 		# Apply to mask
@@ -137,7 +138,26 @@ $ ->
 		prop = $(this).data("property")
 		mask.css( prop, value )
 		# console.log value
+
+	# Update the mask width & height when changing the input text
+	$("#mask-width-value").on "change", ->
+		maskWidth = $(this).val()
+		mask.css("width", maskWidth)
+		# update the size of the container
+		updateContainerWidth(maskWidth)
+	$("#mask-height-value").on "change", ->
+		maskHeight = $(this).val()
+		mask.css("height", maskHeight)
+		# update the size of the container
+		updateContainerHeight(maskHeight)
 		
+	updateContainerWidth = (maskWidth) ->
+		imageWidth = image.width()
+		container.css("width", imageWidth + maskWidth)
+		draggie.enable()
+	updateContainerHeight = (maskHeight) ->
+		imageHeight = image.height()
+		container.css("height", imageHeight + maskHeight)
 
 
 

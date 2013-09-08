@@ -23,11 +23,14 @@
 
 <!-- 			<figure id="image" data-width="" data-height="" style="background-image:url('img/divan.jpg'); background-repeat: none; "></figure> -->
 		<div id="container">
-			<figure id="mask" style="background: url('img/divan.jpg')">
-				<img id="image" src="img/divan.jpg" style="position: absolute; top: 0; left: 0" />
+			<figure id="mask">
+				<img id="image" style="position: absolute; top: 0; left: 0" />
 			</figure>
 		</div>
 
+		<div class="vertical-align">
+			<div class="upload">Drag &amp; drop an image<br /> to get started</div>
+		</div>
 						
 		<div class="animation-hold">
 			<h4>ken-burns</h4><span id="background-position">background-position: 0px 0px</span>
@@ -47,16 +50,16 @@
 				<li><hr /></li>
 				<li>
 					<label>animation-duration</label>
-					<input id="animation-duration" data-property="animation-duration" data-unit="ms" type="text" name="animation-duration" value="10s" />
+					<input id="animation-duration" class="change" data-property="animation-duration" data-unit="ms" type="text" name="animation-duration" value="10s" />
 				</li>
 				<li>
 					<label>animation-delay</label>
-					<input id="animation-delay" data-property="animation-delay" data-unit="ms" type="text" name="animation-delay" value="0s" />
+					<input id="animation-delay" class="change" data-property="animation-delay" data-unit="ms" type="text" name="animation-delay" value="0s" />
 				</li>
 				<li>
 					<label>animation-iteration-count</label>
 					<!-- <a data-property="animation-iteration-count" >infinite</a> -->
-					<input id="animation-iteration-count" data-property="animation-iteration-count" type="text" name="animation-iteration-count" value="1" />
+					<input id="animation-iteration-count" class="change" data-property="animation-iteration-count" type="text" name="animation-iteration-count" value="1" />
 				</li>
 				<li>
 					<label>animation-timing-function</label>
@@ -67,6 +70,11 @@
 						<option value="ease-out">ease-out</option>
 						<option value="ease-in-out">ease-in-out</option>
 					</select>
+				</li>
+				<li><hr /></li>
+				<li>
+					<label>mask width </label><input type="text" id="mask-width-value" class="mask-change" /><br />
+					<label>mask height </label><input type="text" id="mask-height-value" class="mask-change" />
 				</li>
 
 			</ul>
@@ -80,6 +88,8 @@
 		<script src="js/plugins.js"></script>
 		<script src="js/vendor/dragabilly.js"></script>
 		<script src="js/vendor/css-animations.js"></script>
+		<script src="js/vendor/resample.js"></script>
+		<script src="js/vendor/drag-drop.js"></script>
 		<script src="js/main.js"></script>
 
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
