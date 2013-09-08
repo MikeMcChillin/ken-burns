@@ -3,38 +3,6 @@ $ ->
 	image = $("#image")
 	mask = $("#mask")
 	container = $("#container")
-	# img.src = image.css("background-image").replace(/url\(|\)$/g, "")
-	# Make sure image is loaded before starting any width/height calculations.
-	container.imagesLoaded ->
-
-		imageWidth = image.width()
-		imageHeight = image.height()
-
-		maskWidth = image.width() / 2
-		maskHeight = image.height() / 2
-
-		setMaskDimensions = ->
-			mask.css
-				"width": maskWidth
-				"height": maskHeight
-		setMaskDimensions()
-
-		setContainerDimensions = ->
-			container.css
-				"width": imageWidth + maskWidth
-				"height": imageHeight + maskHeight
-		setContainerDimensions()
-
-		positionMask = ->
-			mask.css
-				"left": "50%"
-				"top": "50%"
-				"margin-left": -0.5*maskWidth
-				"margin-top": -0.5*maskHeight
-		
-		positionMask()
-	
-
 
 	# Since we're moving an image, let's actually apply it to our mask's bg image
 	updateBackgroundPosition = (dragEvent, draggieInstance, event, pointer) ->
@@ -43,36 +11,12 @@ $ ->
 			"background-position": position.x + "px " + position.y + "px"
 		currentBackgroundPosition()
 
-		# For testing purposes only
-		#message = dragEvent + "\n" + event.type + " at " + pointer.pageX + ", " + pointer.pageY + "\n" + "draggie position at " + position.x + ", " + position.y
-		#$("#wef").text(message)
-
-
-
-		
-		
-	demo = document.querySelector("#mask")
-	elem = demo.querySelector("#image")
-	draggie = new Draggabilly(elem, 
-		containment: "#container"
-	)
-	output = demo.querySelector("code")
-	draggie.on "dragStart", (draggieInstance, event, pointer) ->
-		updateBackgroundPosition "DRAG START", draggieInstance, event, pointer
-
-	draggie.on "dragMove", (draggieInstance, event, pointer) ->
-		updateBackgroundPosition "DRAG MOVE", draggieInstance, event, pointer
-
-	draggie.on "dragEnd", (draggieInstance, event, pointer) ->
-		updateBackgroundPosition "DRAG END", draggieInstance, event, pointer
-
-
-
 	currentBackgroundPosition = ->
 		$("#background-position").text("background-position: " + mask.css("background-position"))
 
-
-
+	#########################
+	# Button actions
+	#########################
 	$("#animate").click (e) ->
 		e.preventDefault()
 		mask.toggleClass "animate"
@@ -102,7 +46,88 @@ $ ->
 		  "background-position": endPosition
 		$("#end-value").text( "100% {background-position: " + endPosition + "}")
 
-		
+
+
+	#########################
+	# Drag & drop
+	#########################
+	opts = on:
+		load: (e, file) ->
+			if file.type.match(/image/)
+			  
+				# Create the image, set the src and add an id
+				img = new Image()
+				img.src = e.target.result
+				img.id = "image"
+
+				
+
+				img.onload = ->
+					mask.append(img)
+
+
+				#########################
+				# Have to make sure that newly inserted image is ready
+				# Now that we have an image, make some calculations
+				#########################
+				container.imagesLoaded ->
+					image = $("#image")
+					imageWidth = image.width()
+					imageHeight = image.height()
+
+					maskWidth = image.width() / 2
+					maskHeight = image.height() / 2
+
+					dupeImage = ->
+						source = $("#image").attr("src")
+						console.log source
+						mask.css("background", "url(" + source + ")")
+					dupeImage()
+
+					setMaskDimensions = ->
+						mask.css
+							"width": maskWidth
+							"height": maskHeight
+					setMaskDimensions()
+
+					setContainerDimensions = ->
+						container.css
+							"width": imageWidth + maskWidth
+							"height": imageHeight + maskHeight
+					setContainerDimensions()
+
+					positionMask = ->
+						mask.css
+							"left": "50%"
+							"top": "50%"
+							"margin-left": -0.5*maskWidth
+							"margin-top": -0.5*maskHeight
+					
+					positionMask()
+
+					#########################
+					# Initiate dragabilly
+					#########################
+					demo = document.querySelector("#mask")
+					elem = demo.querySelector("img")
+					draggie = new Draggabilly(elem, 
+						containment: "#container"
+					)
+					output = demo.querySelector("code")
+					draggie.on "dragStart", (draggieInstance, event, pointer) ->
+						updateBackgroundPosition "DRAG START", draggieInstance, event, pointer
+
+					draggie.on "dragMove", (draggieInstance, event, pointer) ->
+						updateBackgroundPosition "DRAG MOVE", draggieInstance, event, pointer
+
+					draggie.on "dragEnd", (draggieInstance, event, pointer) ->
+						updateBackgroundPosition "DRAG END", draggieInstance, event, pointer
+
+				$(".upload").addClass "hidden"
+				$(".animation-hold").addClass "visible"
+				
+	# Call drag & drop
+	$("body").fileReaderJS(opts)
 
 
 
@@ -158,8 +183,3 @@ $ ->
 	updateContainerHeight = (maskHeight) ->
 		imageHeight = image.height()
 		container.css("height", imageHeight + maskHeight)
-
-
-
-
-

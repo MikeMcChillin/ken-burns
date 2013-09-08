@@ -9,7 +9,7 @@ body {
   background: #111111;
   -webkit-transition: 1s ease background-color; }
   /* line 12, global.sass */
-  body.droppable {
+  body.drag {
     background: #333333; }
 
 /* line 14, global.sass */
@@ -64,7 +64,7 @@ h4 {
 
 /* line 50, global.sass */
 .hidden {
-  display: none; }
+  display: none !important; }
 
 /* line 52, global.sass */
 #container {
@@ -157,7 +157,7 @@ select {
     color: aquamarine;
     background: transparent; }
   /* line 142, global.sass */
-  .animation-hold.active {
+  .animation-hold.visible {
     -webkit-transform: translateX(0); }
 
 /* line 144, global.sass */

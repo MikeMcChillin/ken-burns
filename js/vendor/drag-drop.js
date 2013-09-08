@@ -51,7 +51,7 @@
         Avatar.hideDroppableArea();
         file = files[0];
         if (file.type.match("image.*")) {
-          return Avatar.resizeImage(file, 256, function(data) {
+          return Avatar.resizeImage(file, 960, function(data) {
             return Avatar.placeImage(data);
           });
         } else {

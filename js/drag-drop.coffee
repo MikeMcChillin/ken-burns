@@ -53,7 +53,7 @@ jQuery.event.props.push "dataTransfer"
       # Multiple files can be dropped. Lets only deal with the "first" one.
       file = files[0]
       if file.type.match("image.*")
-        Avatar.resizeImage file, 256, (data) ->
+        Avatar.resizeImage file, 960, (data) ->
           Avatar.placeImage data
 
       else

@@ -9,7 +9,7 @@ body
 	font-family: 'Inconsolata', 'Monaco', 'Source Code Pro' Courier
 	background: #111
 	-webkit-transition: 1s ease background-color
-	&.droppable
+	&.drag
 		background: #333
 fieldset
 	// display: none
@@ -48,7 +48,7 @@ h4
 	color: #999
 	display: inline-block
 .hidden
-	display: none
+	display: none !important
 #container
 	background: #333
 	position: relative
@@ -139,7 +139,7 @@ select
 		border: 2px solid aquamarine
 		color: aquamarine
 		background: transparent
-	&.active
+	&.visible
 		-webkit-transform: translateX(0)
 input
 	position: relative
