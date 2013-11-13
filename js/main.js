@@ -70,8 +70,6 @@ $(function() {
             image = $("#image");
             imageWidth = image.width();
             imageHeight = image.height();
-            $("#image-width-placeholder").text(imageWidth);
-            $("#image-height-placeholder").text(imageHeight);
             maskWidth = $("#mask-width-input").val();
             maskHeight = $("#mask-height-input").val();
             dupeImage = function() {

@@ -78,9 +78,6 @@ $ ->
 					imageWidth = image.width()
 					imageHeight = image.height()
 
-					$("#image-width-placeholder").text(imageWidth)
-					$("#image-height-placeholder").text(imageHeight)
-
 					# maskWidth = image.width() / 2
 					maskWidth = $("#mask-width-input").val()
 					# maskHeight = image.height() / 2
