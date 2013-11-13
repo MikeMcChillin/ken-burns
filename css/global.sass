@@ -105,6 +105,13 @@ button
 	font-family: "Inconsolata", Courier, Monaco
 	-webkit-font-smoothing: antialiased
 
+#mask-submit,
+#animate
+	display: block
+	border: 2px solid aquamarine
+	color: aquamarine
+	background: transparent
+
 select
 	-webkit-appearance: none
 	border: 0
@@ -164,11 +171,6 @@ select
 		&:hover
 			color: white
 			background: rgba(255,255,255,.2)
-		
-	#animate
-		border: 2px solid aquamarine
-		color: aquamarine
-		background: transparent
 	&.visible
 		-webkit-transform: translateX(0)
 input
@@ -198,6 +200,15 @@ input
 // 	100%
 // 		background-position: 0 0
 
+.mask-size-input
+	width: 100%
+	max-width: 140px
+	margin: 15% auto 0 auto
+	color: white
+	input
+		width: 80%
+		margin-bottom: 1em
+		margin-right: 10px
 
 #map
 	position: relative

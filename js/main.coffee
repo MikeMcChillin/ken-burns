@@ -46,6 +46,11 @@ $ ->
 		  "background-position": endPosition
 		$("#end-value").text( "100% {background-position: " + endPosition + "}")
 
+	$("#mask-submit").on "click", (e) ->
+		e.preventDefault()
+		$(".mask-size-input").addClass "hidden"
+		$(".upload").removeClass "hidden"
+
 
 
 	#########################
@@ -53,20 +58,15 @@ $ ->
 	#########################
 	opts = on:
 		load: (e, file) ->
-			if file.type.match(/image/)
-			  
+			if file.type.match(/image/)			
+
 				# Create the image, set the src and add an id
 				img = new Image()
 				img.src = e.target.result
 				img.id = "image"
 
 				img.onload = ->
-					# Insert the #image in #mask
-					mask.append(img)
-
-				# We're done uploading, so hide that section
-				$(".upload").addClass "hidden"
-				
+					mask.append(img)				
 
 
 				#########################
@@ -78,10 +78,13 @@ $ ->
 					imageWidth = image.width()
 					imageHeight = image.height()
 
+					$("#image-width-placeholder").text(imageWidth)
+					$("#image-height-placeholder").text(imageHeight)
+
 					# maskWidth = image.width() / 2
-					maskWidth = 1440
+					maskWidth = $("#mask-width-input").val()
 					# maskHeight = image.height() / 2
-					maskHeight = 900
+					maskHeight = $("#mask-height-input").val()
 
 					# Dupe the image as a background-image on mask
 					dupeImage = ->
@@ -130,7 +133,7 @@ $ ->
 						updateBackgroundPosition "DRAG END", draggieInstance, event, pointer
 
 				
-				$(".animation-hold").addClass "visible"
+					$(".animation-hold").addClass "visible"
 				
 	# Call drag & drop
 	$("body").fileReaderJS(opts)

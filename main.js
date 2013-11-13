@@ -50,6 +50,11 @@
       });
       return $("#end-value").text("100% {background-position: " + endPosition + "}");
     });
+    $("#mask-submit").on("click", function(e) {
+      e.preventDefault();
+      $(".mask-size-input").addClass("hidden");
+      return $(".upload").removeClass("hidden");
+    });
     opts = {
       on: {
         load: function(e, file) {
@@ -60,14 +65,15 @@
             img.onload = function() {
               return mask.append(img);
             };
-            $(".upload").addClass("hidden");
-            container.imagesLoaded(function() {
+            return container.imagesLoaded(function() {
               var demo, draggie, dupeImage, elem, imageHeight, imageWidth, maskHeight, maskWidth, output, positionMask, setContainerDimensions, setMaskDimensions;
               image = $("#image");
               imageWidth = image.width();
               imageHeight = image.height();
-              maskWidth = 1440;
-              maskHeight = 900;
+              $("#image-width-placeholder").text(imageWidth);
+              $("#image-height-placeholder").text(imageHeight);
+              maskWidth = $("#mask-width-input").val();
+              maskHeight = $("#mask-height-input").val();
               dupeImage = function() {
                 var source;
                 source = $("#image").attr("src");
@@ -110,11 +116,11 @@
               draggie.on("dragMove", function(draggieInstance, event, pointer) {
                 return updateBackgroundPosition("DRAG MOVE", draggieInstance, event, pointer);
               });
-              return draggie.on("dragEnd", function(draggieInstance, event, pointer) {
+              draggie.on("dragEnd", function(draggieInstance, event, pointer) {
                 return updateBackgroundPosition("DRAG END", draggieInstance, event, pointer);
               });
+              return $(".animation-hold").addClass("visible");
             });
-            return $(".animation-hold").addClass("visible");
           }
         }
       }
