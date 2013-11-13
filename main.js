@@ -33,8 +33,10 @@
       e.preventDefault();
       startPosition = $("#mask").css("background-position");
       anim.setKeyframe("0%", {
-        "background-position": startPosition
+        "background-position": startPosition,
+        "background-size": $("#background-size-input").val()
       });
+      console.log(anim);
       return $("#start-value").text("0% {background-position: " + startPosition + "}");
     });
     $("#middle").click(function(e) {
@@ -42,7 +44,8 @@
       e.preventDefault();
       midPosition = $("#mask").css("background-position");
       anim.setKeyframe("50%", {
-        "background-position": midPosition
+        "background-position": midPosition,
+        "background-size": $("#background-size-input").val()
       });
       return $("#middle-value").text("50% {background-position: " + midPosition + "}");
     });
@@ -51,7 +54,8 @@
       e.preventDefault();
       endPosition = $("#mask").css("background-position");
       anim.setKeyframe("100%", {
-        "background-position": endPosition
+        "background-position": endPosition,
+        "background-size": $("#background-size-input").val()
       });
       return $("#end-value").text("100% {background-position: " + endPosition + "}");
     });
@@ -68,7 +72,8 @@
             img.src = e.target.result;
             img.id = "image";
             img.onload = function() {
-              return mask.append(img);
+              mask.append(img);
+              return $(".upload").addClass("hidden");
             };
             return container.imagesLoaded(function() {
               var demo, draggie, dupeImage, elem, imageHeight, imageWidth, maskHeight, maskWidth, output, positionMask, setContainerDimensions, setMaskDimensions;

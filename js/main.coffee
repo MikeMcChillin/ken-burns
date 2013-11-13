@@ -21,7 +21,7 @@ $ ->
 		e.preventDefault()
 		mask.addClass "animate"
 		image.addClass "hidden"
-		
+
 	$("#reset").click (e) ->
 		e.preventDefault()
 		mask.removeClass "animate"
@@ -32,7 +32,9 @@ $ ->
 		e.preventDefault()
 		startPosition = $("#mask").css("background-position")
 		anim.setKeyframe "0%",
-		  "background-position": startPosition
+		  "background-position": startPosition,
+		  "background-size": $("#background-size-input").val()
+		console.log anim
 		$("#start-value").text( "0% {background-position: " + startPosition + "}")
 
 	$("#middle").click (e) ->
@@ -40,7 +42,8 @@ $ ->
 		midPosition = $("#mask").css("background-position")
 		# anim = CSSAnimations.get("ken-burns")
 		anim.setKeyframe "50%",
-		  "background-position": midPosition
+		  "background-position": midPosition,
+		  "background-size": $("#background-size-input").val()
 		$("#middle-value").text( "50% {background-position: " + midPosition + "}")  
 		
 	$("#end").click (e) ->
@@ -48,7 +51,8 @@ $ ->
 		endPosition = $("#mask").css("background-position")
 		# anim = CSSAnimations.get("ken-burns")
 		anim.setKeyframe "100%",
-		  "background-position": endPosition
+		  "background-position": endPosition,
+		  "background-size": $("#background-size-input").val()
 		$("#end-value").text( "100% {background-position: " + endPosition + "}")
 
 	$("#mask-submit").on "click", (e) ->
@@ -73,6 +77,7 @@ $ ->
 				img.onload = ->
 					mask.append(img)				
 
+					$(".upload").addClass "hidden"
 
 				#########################
 				# Have to make sure that newly inserted image is ready
