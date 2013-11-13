@@ -50,6 +50,11 @@ $(function() {
     });
     return $("#end-value").text("100% {background-position: " + endPosition + "}");
   });
+  $("#mask-submit").on("click", function(e) {
+    e.preventDefault();
+    $(".mask-size-input").addClass("hidden");
+    return $(".upload").removeClass("hidden");
+  });
   opts = {
     on: {
       load: function(e, file) {
@@ -57,15 +62,9 @@ $(function() {
           img = new Image();
           img.src = e.target.result;
           img.id = "image";
-          $(".mask-size-input").removeClass("hidden");
-          $(".upload").addClass("hidden");
           img.onload = function() {
             return mask.append(img);
           };
-          $("#mask-submit").on("click", function(e) {
-            e.preventDefault();
-            return $(".mask-size-input").addClass("hidden");
-          });
           return container.imagesLoaded(function() {
             var demo, draggie, dupeImage, elem, imageHeight, imageWidth, maskHeight, maskWidth, output, positionMask, setContainerDimensions, setMaskDimensions;
             image = $("#image");

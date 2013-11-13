@@ -46,6 +46,11 @@ $ ->
 		  "background-position": endPosition
 		$("#end-value").text( "100% {background-position: " + endPosition + "}")
 
+	$("#mask-submit").on "click", (e) ->
+		e.preventDefault()
+		$(".mask-size-input").addClass "hidden"
+		$(".upload").removeClass "hidden"
+
 
 
 	#########################
@@ -60,17 +65,8 @@ $ ->
 				img.src = e.target.result
 				img.id = "image"
 
-				$(".mask-size-input").removeClass "hidden"
-				$(".upload").addClass "hidden"
-
 				img.onload = ->
-					mask.append(img)
-
-				$("#mask-submit").on "click", (e) ->
-					e.preventDefault()
-					$(".mask-size-input").addClass "hidden"
-					# Insert the #image in #mask
-					
+					mask.append(img)				
 
 
 				#########################
@@ -83,7 +79,7 @@ $ ->
 					imageHeight = image.height()
 
 					$("#image-width-placeholder").text(imageWidth)
-					$("#image-height-placeholder").text(imageHeight )
+					$("#image-height-placeholder").text(imageHeight)
 
 					# maskWidth = image.width() / 2
 					maskWidth = $("#mask-width-input").val()
