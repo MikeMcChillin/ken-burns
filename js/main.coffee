@@ -22,10 +22,10 @@ $ ->
 		mask.toggleClass "animate"
 		image.toggleClass "hidden"
 
+	anim = CSSAnimations.create("ken-burns")	
 	$("#start").click (e) ->
 		e.preventDefault()
 		startPosition = $("#mask").css("background-position")
-		anim = CSSAnimations.get("ken-burns")
 		anim.setKeyframe "0%",
 		  "background-position": startPosition
 		$("#start-value").text( "0% {background-position: " + startPosition + "}")
@@ -33,7 +33,7 @@ $ ->
 	$("#middle").click (e) ->
 		e.preventDefault()
 		midPosition = $("#mask").css("background-position")
-		anim = CSSAnimations.get("ken-burns")
+		# anim = CSSAnimations.get("ken-burns")
 		anim.setKeyframe "50%",
 		  "background-position": midPosition
 		$("#middle-value").text( "50% {background-position: " + midPosition + "}")  
@@ -41,7 +41,7 @@ $ ->
 	$("#end").click (e) ->
 		e.preventDefault()
 		endPosition = $("#mask").css("background-position")
-		anim = CSSAnimations.get("ken-burns")
+		# anim = CSSAnimations.get("ken-burns")
 		anim.setKeyframe "100%",
 		  "background-position": endPosition
 		$("#end-value").text( "100% {background-position: " + endPosition + "}")
@@ -78,13 +78,16 @@ $ ->
 					imageWidth = image.width()
 					imageHeight = image.height()
 
-					maskWidth = image.width() / 2
-					maskHeight = image.height() / 2
+					# maskWidth = image.width() / 2
+					maskWidth = 1440
+					# maskHeight = image.height() / 2
+					maskHeight = 900
 
 					# Dupe the image as a background-image on mask
 					dupeImage = ->
 						source = $("#image").attr("src")
 						mask.css("background", "url(" + source + ")")
+						mask.css("background-repeat", "no-repeat")
 					dupeImage()
 
 					setMaskDimensions = ->
@@ -95,8 +98,8 @@ $ ->
 
 					setContainerDimensions = ->
 						container.css
-							"width": imageWidth + maskWidth
-							"height": imageHeight + maskHeight
+							"width": (imageWidth - maskWidth) + imageWidth
+							"height": (imageHeight - maskHeight) + imageHeight
 					setContainerDimensions()
 
 					positionMask = ->

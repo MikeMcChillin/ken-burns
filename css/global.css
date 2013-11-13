@@ -207,23 +207,10 @@ input {
     content: "[d: " attr(value) "] " attr(data-value) attr(data-unit);
     display: block; }
 
-@-webkit-keyframes ken-burns {
-  /* line 186, global.sass */
-  0% {
-    background-position: 0 0; }
-
-  /* line 188, global.sass */
-  50% {
-    background-position: 0 0; }
-
-  /* line 190, global.sass */
-  100% {
-    background-position: 0 0; } }
-
-/* line 194, global.sass */
+/* line 202, global.sass */
 #map {
   position: relative; }
 
-/* line 197, global.sass */
+/* line 205, global.sass */
 #map-canvas {
   position: absolute; }
