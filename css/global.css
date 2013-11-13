@@ -116,6 +116,14 @@ button {
   -webkit-font-smoothing: antialiased; }
 
 /* line 108, global.sass */
+#mask-submit,
+#animate {
+  display: block;
+  border: 2px solid aquamarine;
+  color: aquamarine;
+  background: transparent; }
+
+/* line 115, global.sass */
 select {
   -webkit-appearance: none;
   border: 0;
@@ -127,18 +135,18 @@ select {
   text-indent: 0.5em;
   cursor: pointer; }
 
-/* line 118, global.sass */
+/* line 125, global.sass */
 .vertical-align {
   display: table;
   width: 100%;
   height: 100%; }
 
-/* line 122, global.sass */
+/* line 129, global.sass */
 .upload,
 .plus {
   pointer-events: none; }
 
-/* line 125, global.sass */
+/* line 132, global.sass */
 .upload {
   color: #666666;
   text-align: center;
@@ -152,7 +160,7 @@ select {
   position: relative;
   z-index: 2; }
 
-/* line 137, global.sass */
+/* line 144, global.sass */
 .plus {
   color: transparent;
   -webkit-transition: 1s ease all;
@@ -167,7 +175,7 @@ select {
   margin-top: -40px;
   z-index: 1; }
 
-/* line 150, global.sass */
+/* line 157, global.sass */
 .animation-hold {
   background: rgba(0, 0, 0, 0.1);
   position: fixed;
@@ -177,29 +185,24 @@ select {
   padding: 1em;
   -webkit-transform: translateX(-100%);
   -webkit-transition: 0.5s ease all; }
-  /* line 159, global.sass */
+  /* line 166, global.sass */
   .animation-hold button {
     background: rgba(255, 255, 255, 0.1);
     padding: 0 0.5em;
     color: #999999;
     -webkit-transition: 0.5s ease all; }
-    /* line 164, global.sass */
+    /* line 171, global.sass */
     .animation-hold button:hover {
       color: white;
       background: rgba(255, 255, 255, 0.2); }
-  /* line 168, global.sass */
-  .animation-hold #animate {
-    border: 2px solid aquamarine;
-    color: aquamarine;
-    background: transparent; }
-  /* line 172, global.sass */
+  /* line 174, global.sass */
   .animation-hold.visible {
     -webkit-transform: translateX(0); }
 
-/* line 174, global.sass */
+/* line 176, global.sass */
 input {
   position: relative; }
-  /* line 176, global.sass */
+  /* line 178, global.sass */
   input:before {
     position: absolute;
     left: 0;
@@ -207,10 +210,22 @@ input {
     content: "[d: " attr(value) "] " attr(data-value) attr(data-unit);
     display: block; }
 
-/* line 202, global.sass */
+/* line 203, global.sass */
+.mask-size-input {
+  width: 100%;
+  max-width: 140px;
+  margin: 15% auto 0 auto;
+  color: white; }
+  /* line 208, global.sass */
+  .mask-size-input input {
+    width: 80%;
+    margin-bottom: 1em;
+    margin-right: 10px; }
+
+/* line 213, global.sass */
 #map {
   position: relative; }
 
-/* line 205, global.sass */
+/* line 216, global.sass */
 #map-canvas {
   position: absolute; }
