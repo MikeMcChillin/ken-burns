@@ -19,8 +19,13 @@ $ ->
 	#########################
 	$("#animate").click (e) ->
 		e.preventDefault()
-		mask.toggleClass "animate"
-		image.toggleClass "hidden"
+		mask.addClass "animate"
+		image.addClass "hidden"
+		
+	$("#reset").click (e) ->
+		e.preventDefault()
+		mask.removeClass "animate"
+		image.removeClass "hidden"
 
 	anim = CSSAnimations.create("ken-burns")	
 	$("#start").click (e) ->

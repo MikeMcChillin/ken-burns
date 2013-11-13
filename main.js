@@ -19,8 +19,13 @@
     };
     $("#animate").click(function(e) {
       e.preventDefault();
-      mask.toggleClass("animate");
-      return image.toggleClass("hidden");
+      mask.addClass("animate");
+      return image.addClass("hidden");
+    });
+    $("#reset").click(function(e) {
+      e.preventDefault();
+      mask.removeClass("animate");
+      return image.removeClass("hidden");
     });
     anim = CSSAnimations.create("ken-burns");
     $("#start").click(function(e) {
